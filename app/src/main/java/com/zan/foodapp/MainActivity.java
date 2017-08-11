@@ -17,7 +17,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.zan.foodapp.Fragment.FalafelBiteFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
     }
 
 
@@ -103,9 +106,9 @@ public class MainActivity extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View rootView = null;
 
-            if(getArguments().getInt(ARG_SECTION_NUMBER) == 1)
+            if(getArguments().getInt(ARG_SECTION_NUMBER) == 0)
                 rootView = inflater.inflate(R.layout.fragment_falafel_bite, container, false);
-            else if(getArguments().getInt(ARG_SECTION_NUMBER) == 2)
+            else if(getArguments().getInt(ARG_SECTION_NUMBER) == 1)
                 rootView = inflater.inflate(R.layout.fragment_halal_guys, container, false);
 
             return rootView;
@@ -126,11 +129,22 @@ public class MainActivity extends AppCompatActivity {
             super(fm);
         }
 
-        @Override
+        /*@Override
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            return PlaceholderFragment.newInstance(position);
+        }*/
+
+        @Override
+        public Fragment getItem(int position){
+            switch(position){
+                case 0:
+                    return FalafelBiteFragment.newInstance(0, "Page # 1");
+
+                default:
+                    return null;
+            }
         }
 
         @Override
