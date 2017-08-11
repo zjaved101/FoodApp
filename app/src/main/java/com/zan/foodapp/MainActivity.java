@@ -24,6 +24,8 @@ import android.widget.Toast;
 import com.zan.foodapp.Fragment.FalafelBiteFragment;
 
 public class MainActivity extends AppCompatActivity {
+    // https://stackoverflow.com/questions/18413309/how-to-implement-a-viewpager-with-different-fragments-layouts
+    // https://github.com/codepath/android_guides/wiki/ViewPager-with-FragmentPagerAdapter
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
